@@ -4,23 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/index.css">
-    <title>To Do List</title>
+    <title>My Blog Site</title>
 </head>
 <body>
-    <h1>Posts</h1>
-    <a href="/form">New post</a>
-    <% if(locals.data.length>0){%>
-        <%  for(var i=0;i<data.length;i++){%>
-            <div class="post">
-                <p><%= data[i].name %> asks <%= data[i].title %></p>
-                <p><%= data[i].email %></p>
-                <p><%= data[i].text %></p>
-                <input type="button" value="Remove">
-                <input type="button" value="Change">
-            </div>
-        <%}%>
-    <%}else{%>
-        <p>no posts yet</p>
-    <%}%>
+    <div class="grid-container">
+        <div class="grid-item">
+            <%- include('partials/header.ejs') %>
+        </div>
+        <div class="grid-item">
+            <% if(locals.data.length>0){%>
+                <%  for(var i=0;i<data.length;i++){%>
+                    <div class="post">
+                        <p><%= data[i].title %></p>
+                        <p><%= data[i].id %></p>
+                        <a href="/details">About</a>
+                    </div>
+                <%}%>
+            <%}else{%>
+                <p class="empty">Be the first to post something</p>
+            <%}%>
+        </div>
+        <div class="grid-item">
+            <%- include('partials/footer.ejs') %>
+        </div>
+    </div>
 </body>
+
 </html>

@@ -11,17 +11,22 @@
     <form class="box" action="/form" method="POST">
         <div class="grid-container">
             <div class="grid-item one">
-                <input name="title" type="text" class="titl" placeholder="Enter the title to your post" />
+                <input name="title" type="text" class="titl" placeholder="Enter the title to your post" required />
             </div>
             <div class="grid-item two">
-                <input name="name" type="text"placeholder="Username" />
-                <input name="email" type="text"placeholder="Email" />
+                <input name="name" type="text"placeholder="Username" required/>
+                <input list="topics" name="topic" placeholder="Select topic" required>
+                    <datalist id="topics">
+                        <% for(i=0;i<topics.length;i++){%>
+                        <option value=<%= topics[i] %>>
+                        <% } %>
+                    </datalist>
             </div>
             <div  class="grid-item three">
-                <textarea name="text"placeholder="What do you wonna post about"></textarea>
+                <textarea name="text"placeholder="What do you wonna post about"required></textarea>
             </div>
             <div  class="grid-item four">
-                <input type="submit" value="POST" class="btn"/>
+                <input type="submit" value="POST" class="btn" required/>
                 <a href="/" class="link">BACK</a>
             </div>
         </div>

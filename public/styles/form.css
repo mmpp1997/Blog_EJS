@@ -1,5 +1,9 @@
 body{
     background-color: #EEF5FF;
+    
+}
+body *{
+    font-family:sans-serif
 }
 .box {
     display: flex;
