@@ -11,23 +11,28 @@
         <div class="grid-item">
             <%- include('partials/header.ejs') %>
         </div>
+        <div class="flex">
         <div class="grid-item">
             <% if(locals.data.length>0){%>
                 <%  for(var i=0;i<data.length;i++){%>
                     <div class="post">
                         <p><%= data[i].title %></p>
-                        <p><%= data[i].id %></p>
-                        <a href="/details">About</a>
+                        <form action="/details" method="POST">
+                            <input type="hidden" name="detail" value="<%= data[i].id %>" />
+                            <input class="btn" type="submit" value="About">
+                        </form>
                     </div>
                 <%}%>
             <%}else{%>
                 <p class="empty">Be the first to post something</p>
             <%}%>
         </div>
+    </div>
         <div class="grid-item">
             <%- include('partials/footer.ejs') %>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </body>
 
 </html>

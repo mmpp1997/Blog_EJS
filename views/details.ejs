@@ -7,6 +7,15 @@
     <title>Blog</title>
 </head>
 <body>
-    <h1>detalji</h1>
+    <% if(locals.about){%>
+            <p>question: <%= about.title %></p>
+            <p>id: <%= about.id %></p>
+            <p>topic: <%= about.topic %></p>
+            <p>name: <%= about.name %></p>
+            <p>text: <%= about.text %></p>
+
+    <%}else{%>
+        <p class="empty">This post doesn't exist</p>
+    <%}%>
 </body>
 </html>
