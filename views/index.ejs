@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/index.css">
+    <title>To Do List</title>
+</head>
+<body>
+    <h1>Posts</h1>
+    <a href="/form">New post</a>
+    <% if(locals.data.length>0){%>
+        <%  for(var i=0;i<data.length;i++){%>
+            <div class="post">
+                <p><%= data[i].name %> asks <%= data[i].title %></p>
+                <p><%= data[i].email %></p>
+                <p><%= data[i].text %></p>
+                <input type="button" value="Remove">
+                <input type="button" value="Change">
+            </div>
+        <%}%>
+    <%}else{%>
+        <p>no posts yet</p>
+    <%}%>
+</body>
+</html>
