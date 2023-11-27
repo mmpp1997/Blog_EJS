@@ -3,19 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/form.css">
-    <title>Blog</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <title>My Blog Site</title>
 </head>
 <body>
-    <% if(locals.about){%>
-            <p>question: <%= about.title %></p>
-            <p>id: <%= about.id %></p>
-            <p>topic: <%= about.topic %></p>
-            <p>name: <%= about.name %></p>
-            <p>text: <%= about.text %></p>
-
-    <%}else{%>
-        <p class="empty">This post doesn't exist</p>
-    <%}%>
+    <div class="grid-container">
+        <div>
+            <%- include('partials/header.ejs') %>
+        </div>
+        <div class="detail">
+            <% if(locals.about){%>
+                <h3><%= about.title %></h3>
+                <p>User <%= about.name %> asks in <%= about.topic %>:</p>
+                <p><%= about.text %></p>
+                <input type="button" value="Delete Post">
+                <input type="button" value="Edit Post">
+    
+            <%}else{%>
+                <p class="empty">This post doesn't exist</p>
+            <%}%>
+        </div>
+        <div>
+            <%- include('partials/footer.ejs') %>
+        </div>
+    </div>
 </body>
 </html>

@@ -4,7 +4,13 @@ import bodyParser from "body-parser";
 const app = express();
 const port = 3000;
 var posts=[];
-var topics=["General","Drama","Sports","Movies","Other"]
+var topics=[
+  {name:"General",color:"orange"},
+  {name:"Drama",color:"blue"},
+  {name:"Sports",color:"red"},
+  {name:"Movies",color:"yellow"},
+  {name:"Other",color:"grey"}
+]
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -39,11 +45,19 @@ app.post("/form", (req, res) => {
       i=0;
     }
   }
+  for(i=0;i<topics.length;i++){
+    if(topics[i].name==req.body["topic"]){
+      var post_color=topics[i].color;
+      break;
+    }
+  }
+
   var post={
     id:id,
     title:req.body["title"],
     name:req.body["name"],
     topic:req.body["topic"],
+    color:post_color,
     text:req.body["text"]};
   posts.push(post);
   res.redirect('/');

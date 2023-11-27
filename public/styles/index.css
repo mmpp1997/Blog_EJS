@@ -12,19 +12,18 @@ body *{
 }
 .post{
     border: solid #0766AD 1px;
-    display: flex;
-    height: 28px;
+    display: grid;
+    height: 30px;
+    grid-template-columns: 70px auto 70px;
     align-items: center;
-    justify-content: space-between;
-    padding-left: 1%;
-    margin: 5px;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin: 10px;
+    margin-left: 15%;
+    margin-right: 15%;
 }
-.post > p{
+/* .post > p{
     margin: 0px;
     padding: 0px;
-}
+} */
 .post > input{
     margin: 0px;
     padding: 0px;
@@ -59,6 +58,9 @@ a{
     color: white;
     text-decoration: none;
 }
+.title>a{
+    background-color: transparent;
+}
 .empty{
     margin: 0px;
     padding: 0px;
@@ -71,5 +73,33 @@ a{
     background-color: #0766AD;
     border: transparent;
     color: white;
-    padding: 7px;
+    
+}
+.btn-part{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: #0766AD;
+}
+.detail{
+    margin: 2%;
+}
+.topic{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 70px;
+    text-align: center;
+}
+.post-title{
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    height: 100%;
+
+}
+p{
+    margin: 0px;
 }

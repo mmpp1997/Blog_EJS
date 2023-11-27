@@ -18,7 +18,7 @@
                 <input list="topics" name="topic" placeholder="Select topic" required>
                     <datalist id="topics">
                         <% for(i=0;i<topics.length;i++){%>
-                        <option value=<%= topics[i] %>>
+                        <option value=<%= topics[i].name %>>
                         <% } %>
                     </datalist>
             </div>
