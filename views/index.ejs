@@ -24,10 +24,7 @@
                             <p><%= data[i].title %></p>
                         </div>
                         <div class="btn-part">
-                            <form action="/details" method="POST">
-                                <input type="hidden" name="detail" value="<%= data[i].id %>" />
-                                <input class="btn" type="submit" value="About">
-                            </form>
+                            <a href="/details/<%=data[i].id%>">About</a>
                         </div>
                         
                     </div>
@@ -41,7 +38,5 @@
             <%- include('partials/footer.ejs') %>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </body>
-
 </html>

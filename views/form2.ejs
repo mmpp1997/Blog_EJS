@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/form.css">
+    <title>To Do List</title>
+</head>
+<body>
+    <%  if(locals.data){%>
+    <form class="box" action="/edit/<%= data.id %>" method="POST">
+        <div class="grid-container">
+            <div class="grid-item one">
+                <input name="title" type="text" class="titl" value="<%= data.title %>" required></input>
+            </div>
+            <div class="grid-item two">
+                <input name="name" type="text" value="<%= data.name %>" required/>
+                <input list="topics" name="topic" value="<%= data.topic %>" required>
+                    <datalist id="topics">
+                        <% for(i=0;i<topics.length;i++){%>
+                        <option value=<%= topics[i].name %>>
+                        <% } %>
+                    </datalist>
+            </div>
+            <div  class="grid-item three">
+                <textarea name="text" required><%= data.text %></textarea>
+            </div>
+            <div  class="grid-item four">
+                <input type="submit" value="<%= task%>" class="btn" required/>
+                <a href="/details/<%=data.id  %>" class="link">BACK</a>
+            </div>
+        </div>
+    </form>
+    <% } %>
+</body>
+</html>

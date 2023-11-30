@@ -1,4 +1,15 @@
 <header>
     <p class="header-par title"><a href="/">My Blog Site</a></p>
+    <%if(locals.topics){%>
+        <form action="/filter" method="POST">
+            <select name="topic"  onchange="this.form.submit()">
+                <option>All Posts</option>
+                <%for(i=0;i<topics.length;i++){%>
+                <option><%=topics[i].name%></option>
+                <%}%>
+                <option selected="selected" disabled>Filter</option>
+            </select>
+        </form>
+    <%}%>
     <p class="header-par new-post" ><a href="/form">New post</a></p>
 </header>

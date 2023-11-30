@@ -16,7 +16,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   res.render("index.ejs",{
-    data: posts
+    data: posts,
+    topics:topics
 });
 });
 app.get("/form", (req, res) => {
@@ -24,16 +25,42 @@ app.get("/form", (req, res) => {
     topics:topics
   });
 });
-app.post("/details", (req, res) => {
-  var btn_id=req.body["detail"];
-  for(var i=0;i<posts.length;i++){
-    if(btn_id==posts[i].id){
-      var selected_post=posts[i];
-      break;
-    }
-  }
+app.get("/details/:id", (req, res) => {
+  const id= req.params.id;
+  const postIndex=posts.findIndex((post)=>post.id==id);
   res.render("details.ejs",{
-    about:selected_post
+    about:posts[postIndex]
+  });
+});
+app.get("/delete/:id", (req, res) => {
+  const id= req.params.id;
+  const postIndex=posts.findIndex((post)=>post.id==id);
+  posts.splice(postIndex,1)
+  res.redirect("/");
+});
+app.get("/edit/:id", (req, res) => {
+  const id= req.params.id;
+  const postIndex=posts.findIndex((post)=>post.id==id);
+  res.render("form2.ejs",{
+    data:posts[postIndex],
+    task:"EDIT POST",
+    topics:topics
+  });
+});
+app.post("/filter", (req, res) => {
+  const topic= req.body.topic;
+  console.log(topic);
+  var data;
+  if(topic=="All Posts"){
+    data=posts;
+  }
+  else{
+    data=posts.filter((post)=>post.topic==topic);
+  }
+  console.log(data.length);
+  res.render("index.ejs",{
+    topics:topics,
+    data:data
   });
 });
 
@@ -41,26 +68,41 @@ app.post("/form", (req, res) => {
   var id=Math.floor(Math.random()*10000);
   for(i=0;i<posts.length;i++){
     if(id==posts[i].id){
-      var id=Math.floor(Math.random()*10000);
+      id=Math.floor(Math.random()*10000);
       i=0;
     }
-  }
-  for(i=0;i<topics.length;i++){
-    if(topics[i].name==req.body["topic"]){
-      var post_color=topics[i].color;
-      break;
-    }
-  }
-
+  };
+  console.log(req.body.topic);
+  const topic=topics.find((topic)=>topic.name==req.body.topic);
   var post={
     id:id,
     title:req.body["title"],
     name:req.body["name"],
     topic:req.body["topic"],
-    color:post_color,
+    color:topic.color,
     text:req.body["text"]};
   posts.push(post);
   res.redirect('/');
+});
+
+app.post("/edit/:id", (req, res) => {
+  const id= req.params.id;
+  const postIndex=posts.findIndex((post)=>post.id==id);
+  if(posts[postIndex].title!=req.body.title){
+    posts[postIndex].title=req.body.title;
+  }
+  if(posts[postIndex].name!=req.body.name){
+    posts[postIndex].name=req.body.name;
+  }
+  if(posts[postIndex].text!=req.body.text){
+    posts[postIndex].text=req.body.text;
+  }
+  if(posts[postIndex].topic!=req.body.topic){
+    posts[postIndex].topic=req.body.topic;
+    const topic=topics.find((topic)=>topic.name==req.body.topic);
+    posts[postIndex].color=topic.color;
+  }
+  res.redirect('/details/'+posts[postIndex].id);
 });
 
 app.listen(port, () => {

@@ -15,12 +15,11 @@
             </div>
             <div class="grid-item two">
                 <input name="name" type="text"placeholder="Username" required/>
-                <input list="topics" name="topic" placeholder="Select topic" required>
-                    <datalist id="topics">
-                        <% for(i=0;i<topics.length;i++){%>
-                        <option value=<%= topics[i].name %>>
-                        <% } %>
-                    </datalist>
+                <select name="topic">
+                    <%for(i=0;i<topics.length;i++){%>
+                    <option><%=topics[i].name%></option>
+                    <%}%>
+                </select>
             </div>
             <div  class="grid-item three">
                 <textarea name="text"placeholder="What do you wonna post about"required></textarea>
