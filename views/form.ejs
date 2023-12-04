@@ -3,30 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/form.css">
+    <link rel="stylesheet" href="/styles/form.css">
     <title>To Do List</title>
 </head>
 <body>
-
-    <form class="box" action="/form" method="POST">
+    <%var path="/form";%>
+    <%if(locals.data){%>
+        <%path="/edit/"+data.id%>
+    <%}%>
+    <form class="box" action=<%=path%> method="POST">
         <div class="grid-container">
             <div class="grid-item one">
-                <input name="title" type="text" class="titl" placeholder="Enter the title to your post" required />
+                <input name="title" type="text" class="titl" placeholder="Enter the title to your post" required <%if(locals.data){%>value="<%=data.title%>"<%}%>/>
             </div>
             <div class="grid-item two">
-                <input name="name" type="text"placeholder="Username" required/>
+                <input name="name" type="text"placeholder="Username" required <%if(locals.data){%>value="<%=data.name%>"<%}%>/>
                 <select name="topic">
                     <%for(i=0;i<topics.length;i++){%>
-                    <option><%=topics[i].name%></option>
+                    <option <%if(locals.data && locals.data.topic==topics[i].name){%><%=selected="selected" %><%}%> ><%=topics[i].name%></option>
                     <%}%>
                 </select>
             </div>
             <div  class="grid-item three">
-                <textarea name="text"placeholder="What do you wonna post about"required></textarea>
+                <textarea name="text"placeholder="What do you wonna post about" required><%if(locals.data){%><%=data.text%><%}%></textarea>
             </div>
             <div  class="grid-item four">
-                <input type="submit" value="POST" class="btn" required/>
-                <a href="/" class="link">BACK</a>
+                <input type="submit" value="<%=task%>" class="btn"/>
+                <a href="/" class="link"><input type="button" value="BACK" class="btn"/></a>
             </div>
         </div>
     </form>

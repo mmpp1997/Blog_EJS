@@ -22,7 +22,8 @@ app.get("/", (req, res) => {
 });
 app.get("/form", (req, res) => {
   res.render("form.ejs",{
-    topics:topics
+    topics:topics,
+    task:"POST"
   });
 });
 app.get("/details/:id", (req, res) => {
@@ -41,9 +42,9 @@ app.get("/delete/:id", (req, res) => {
 app.get("/edit/:id", (req, res) => {
   const id= req.params.id;
   const postIndex=posts.findIndex((post)=>post.id==id);
-  res.render("form2.ejs",{
+  res.render("form.ejs",{
     data:posts[postIndex],
-    task:"EDIT POST",
+    task:"EDIT",
     topics:topics
   });
 });

@@ -65,9 +65,10 @@ a{
     margin: 0px;
     padding: 0px;
     display: flex;
-    height: 100%;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    
 }
 .btn{
     background-color: #0766AD;
@@ -102,4 +103,14 @@ a{
 }
 p{
     margin: 0px;
+}
+.header-form{ 
+    height: 20px; 
+}
+.header-form > select{
+    background-color: #0766AD;
+    color: white;
+    border: none;
+    font-size: 18px;
+    height: 100%;
 }

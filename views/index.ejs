@@ -11,7 +11,6 @@
         <div class="grid-item">
             <%- include('partials/header.ejs') %>
         </div>
-        <div>
         <div class="grid-item">
             <% if(locals.data.length>0){%>
                 <%  for(var i=0;i<data.length;i++){%>
@@ -30,7 +29,10 @@
                     </div>
                 <%}%>
             <%}else{%>
-                <p class="empty">Be the first to post something</p>
+                <div class="empty">
+                    <p>Be the first to post something</p>
+                </div>
+                
             <%}%>
         </div>
     </div>
