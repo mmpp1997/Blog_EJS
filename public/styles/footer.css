@@ -1,0 +1,15 @@
+footer{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #9EB8D9;
+}
+.my-info{
+    margin: 0px;
+    padding: 0px;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+}

@@ -1,5 +1,8 @@
+<head>
+    <link rel="stylesheet" href="/styles/header.css">
+</head>
 <header>
-    <p class="header-par title"><a href="/">My Blog Site</a></p>
+    <a class="title" href="/">My Blog Site</a>
     <%if(locals.topics){%>
         <form class="header-form" action="/filter" method="POST">
             <select name="topic"  onchange="this.form.submit()">
@@ -11,5 +14,5 @@
             </select>
         </form>
     <%}%>
-    <p class="header-par new-post" ><a href="/form">New post</a></p>
+    <a class="new-btn" style="text-align:center" href="/form">New post</a>
 </header>

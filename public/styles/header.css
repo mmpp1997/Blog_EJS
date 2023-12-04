@@ -1,0 +1,41 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #9EB8D9;
+    height: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.title{
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+}
+.header-form{ 
+    height: 80%;
+}
+.header-form > select{
+    background-color: #0766AD;
+    color: white;
+    border: none;
+    height: 100%;
+    width: 130px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 30px;
+}
+.new-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    height: 80%;
+    background-color: #23ad07;
+    color: white;
+    text-decoration: none;
+    width: 150px;
+    font-size: 30px;
+}

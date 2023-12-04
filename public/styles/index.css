@@ -1,6 +1,5 @@
 body{
     margin: 0px;
-    
 }
 body *{
     font-family: sans-serif;
@@ -8,7 +7,7 @@ body *{
 .grid-container{
     display: grid;
     height: 100vh;
-    grid-template-rows: 33px auto 18px;
+    grid-template-rows: 70px auto 35px;
 }
 .post{
     border: solid #0766AD 1px;
@@ -20,46 +19,17 @@ body *{
     margin-left: 15%;
     margin-right: 15%;
 }
-/* .post > p{
-    margin: 0px;
-    padding: 0px;
-} */
+.page-body{
+    margin-top: 5%;
+}
 .post > input{
     margin: 0px;
     padding: 0px;
 }
-header{
-    display: flex;
-    justify-content: space-between;
-    background-color: #9EB8D9;
-    height: 20px;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: 7px;
-    padding-bottom: 7px;
-}
-.header-par{
-    margin: 0px;
-    color: white;
-}
-footer{
-    display: flex;
-    justify-content: center;
-    background-color: #9EB8D9;
-}
-footer>p{
-    margin: 0px;
-    padding: 0px;
-    color: white;
-}
 a{
     background-color: #0766AD;
-    padding: 5px;
     color: white;
     text-decoration: none;
-}
-.title>a{
-    background-color: transparent;
 }
 .empty{
     margin: 0px;
@@ -70,21 +40,12 @@ a{
     height: 100%;
     
 }
-.btn{
-    background-color: #0766AD;
-    border: transparent;
-    color: white;
-    
-}
-.btn-part{
+.btn-about{
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
     background-color: #0766AD;
-}
-.detail{
-    margin: 2%;
 }
 .topic{
     display: flex;
@@ -94,23 +55,6 @@ a{
     width: 70px;
     text-align: center;
 }
-.post-title{
-    display: flex;
-    align-items: center;
-    padding-left: 5px;
-    height: 100%;
-
-}
 p{
     margin: 0px;
-}
-.header-form{ 
-    height: 20px; 
-}
-.header-form > select{
-    background-color: #0766AD;
-    color: white;
-    border: none;
-    font-size: 18px;
-    height: 100%;
 }

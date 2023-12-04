@@ -81,6 +81,9 @@ input{
     border: none;
     color: white;
 }
+.green{
+    background-color: #23ad07;
+}
 .link{
     width: 100px;
     height: 30px;
