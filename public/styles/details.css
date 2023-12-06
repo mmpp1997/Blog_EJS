@@ -4,6 +4,14 @@ body{
 body *{
     font-family: sans-serif;
 }
+h3{
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+}
+.wrap{
+    border-top: 1px solid black;
+    padding-top: 10px;
+}
 p{
     margin: 0px;
 }
@@ -13,7 +21,6 @@ p{
     grid-template-rows: 70px auto 35px;
 }
 .about{
-
     height: 80%;
     display: grid;
     grid-template-rows: auto auto auto;
@@ -32,6 +39,7 @@ p{
     
 }
 .btn{
+    
     border-radius: 10px;
     padding: 5px;
     padding-left: 8px;
@@ -50,5 +58,21 @@ p{
 .red{
     background-color: #bf061b;
     margin-left: 30px;
+}
+@media only screen and (max-width: 600px) {
+    .wrap{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn{
+        margin: 10px;
+        width: 80%;
+        text-align: center;
+    }
+    p{
+        font-size: 20px;
+        Line-height:35px;
+    }
 }
 

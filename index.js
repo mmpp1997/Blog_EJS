@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 const app = express();
 const port = 3000;
 var posts=[];
+var selectedTopic="All Posts";
 var topics=[
   {name:"General",color:"orange"},
   {name:"Drama",color:"blue"},
@@ -15,9 +16,11 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
+  selectedTopic="All Posts";
   res.render("index.ejs",{
     data: posts,
-    topics:topics
+    topics:topics,
+    selectedTopic:selectedTopic
 });
 });
 app.get("/form", (req, res) => {
@@ -50,7 +53,6 @@ app.get("/edit/:id", (req, res) => {
 });
 app.post("/filter", (req, res) => {
   const topic= req.body.topic;
-  console.log(topic);
   var data;
   if(topic=="All Posts"){
     data=posts;
@@ -58,10 +60,11 @@ app.post("/filter", (req, res) => {
   else{
     data=posts.filter((post)=>post.topic==topic);
   }
-  console.log(data.length);
+  selectedTopic=topic;
   res.render("index.ejs",{
     topics:topics,
-    data:data
+    data:data,
+    selectedTopic:selectedTopic
   });
 });
 
@@ -73,7 +76,6 @@ app.post("/form", (req, res) => {
       i=0;
     }
   };
-  console.log(req.body.topic);
   const topic=topics.find((topic)=>topic.name==req.body.topic);
   var post={
     id:id,

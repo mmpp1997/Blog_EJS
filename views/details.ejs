@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/details.css">
-    <title>My Blog Site</title>
+    <title>Details</title>
 </head>
 <body>
     <div class="grid-container">
@@ -15,16 +15,14 @@
             <% if(locals.about){%>
                 <div>
                     <h3><%= about.title %></h3>
-                    <hr>
                 </div>
                 <div>
                     <% const backgroundColor ="background-color: "+about.color%>
-                    <p>User <%= about.name %> asks in <span class="topic btn"style="<%=backgroundColor %>"><%= about.topic %></span>:</p>
+                    <p>User <%= about.name %> asks in <span class="topic btn space"style="<%=backgroundColor %>"><%= about.topic %></span></p>
                     <br>
                     <p><%= about.text %></p>
                 </div>
-                <div>
-                    <hr>
+                <div class="wrap">
                     <a class="green btn" href="/edit/<%=about.id%>">Edit Post</a> 
                     <a class="red btn" href="/delete/<%=about.id%>">Delete Post</a>
                 </div>
