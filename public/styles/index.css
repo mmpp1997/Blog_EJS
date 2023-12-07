@@ -1,3 +1,7 @@
+:root{
+    --main-color: #0766AD;
+    --secondary-color: #9EB8D9;
+}
 body{
     margin: 0px;
 }
@@ -11,7 +15,7 @@ body *{
     grid-template-rows: 70px auto 35px;
 }
 .post{
-    border: solid #0766AD 1px;
+    border: solid var(--main-color) 1px;
     display: grid;
     height: 90px;
     grid-template-columns: minmax(120px, 10%) auto minmax(120px, 10%);
@@ -32,9 +36,12 @@ body *{
     padding: 0px;
 }
 a{
-    background-color: #0766AD;
+    background-color: var(--main-color);
     color: white;
     text-decoration: none;
+}
+a:hover{
+    color: #DED0B6;
 }
 .empty{
     margin: 0px;
@@ -51,7 +58,7 @@ a{
     justify-content: center;
     height: 100%;
     width: 100%;
-    background-color: #0766AD;
+    background-color: var(--main-color);
 }
 .topic{
     display: flex;

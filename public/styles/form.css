@@ -1,3 +1,7 @@
+:root{
+    --main-color: #0766AD;
+    --secondary-color: #9EB8D9;
+}
 body{
     background-color: #EEF5FF;
     
@@ -19,8 +23,8 @@ body *{
     grid-template-rows: auto auto auto auto;
     padding: 10px;
     gap: 15px;
-    background-color: #9EB8D9;
-    border: solid #0766AD 1px;
+    background-color: var(--secondary-color);
+    border: solid var(--main-color) 1px;
     border-radius: 5px;
 
 }
@@ -83,7 +87,8 @@ input{
 .btn{
     width: 130px;
     height: 60px;
-    background-color: #0766AD;
+    border-radius: 20px;
+    background-color: var(--main-color);
     border: none;
     color: white;
     margin-right: 20px;
@@ -94,11 +99,14 @@ input{
 .link{
     width: 130px;
     height: 30px;
-    background-color: #0766AD;
     color: white;
     text-align: center;
     text-decoration: none;
 }
+.four input:hover{
+    color: #DED0B6;
+}
+
 @media only screen and (max-width: 600px) {
     .grid-container {
         width: 99%;

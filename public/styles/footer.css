@@ -1,9 +1,13 @@
+:root{
+    --main-color: #0766AD;
+    --secondary-color: #9EB8D9;
+}
 footer{
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #9EB8D9;
+    background-color: var(--secondary-color);
 }
 .my-info{
     margin: 0px;
